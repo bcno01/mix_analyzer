@@ -123,6 +123,13 @@ tools/               analyze_cli.mjs, verify_reference.py, gen_icons.py
 - `sw.js`: アプリ本体をプリキャッシュし、取得は「キャッシュを即返して裏で更新」（stale-while-revalidate）。**ファイルを足したら`ASSETS`に追加**する（`tests/pwa.test.js`が漏れを検査）。
 - 開発中にキャッシュが古い画面を返すときは、DevToolsでService Workerの登録解除とキャッシュ削除をする。
 
+## 公開情報
+
+- リポジトリ（公開）: https://github.com/bcno01/mix_analyzer
+- 公開URL（GitHub Pages、`main`ブランチのルート）: https://bcno01.github.io/mix_analyzer/ 。`https`なのでPWAとしてインストールできる。公開サイトで、WAV解析・サービスワーカー・同梱フォントの動作を確認済み（2026-11-19）。
+- **更新するとき**: `main`にpushするとPagesが数分で再ビルドする。ファイルを足したら`sw.js`の`ASSETS`に追加する。サービスワーカーは「キャッシュを返しつつ裏で更新」なので、利用者は**更新後の2回目の起動**で新しい版になる。
+- リポジトリに入れていないもの: `tests/_media`（検証用の音声。手元でffmpegから作る）。
+
 ## 今後の拡張（設計だけ空けてある）
 
 アカウント・クラウド保存、リファレンス曲との比較、目標ラウドネスの判定、評価コメントは最初のスコープ外。解析結果がJSONで独立しているので、`src/`に別レイヤーとして足せる。

@@ -1,0 +1,10 @@
+{
+  "name": "mix-analyzer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MIXバランス分析PWA（解析はすべてブラウザ内）",
+  "scripts": {
+    "test": "node --test"
+  }
+}
